@@ -33,5 +33,5 @@ tpl = e.from_string(open('pxemenu.tpl').read())
 
 for mac in mac_host.keys():
     hostname = mac_host[mac]
-    with open(f'pxelinux.cfg/{mac}', 'w') as f:
+    with open(f'pxelinux.cfg/01-{mac}', 'w') as f:
         f.write(tpl.render(mac=mac, hostname=hostname))
