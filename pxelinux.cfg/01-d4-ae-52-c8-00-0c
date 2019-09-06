@@ -1,0 +1,19 @@
+default menu.c32
+prompt 0
+timeout 30
+
+MENU TITLE PXE Menu for c52 : d4-ae-52-c8-00-0c
+
+LABEL 1
+MENU LABEL ^1) CentOS 7_X64 install
+KERNEL /networkboot/vmlinuz
+APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub ks=ftp://192.168.0.101/pub/c52-d4-ae-52-c8-00-0c.cfg
+
+LABEL 2
+MENU LABEL ^1) CentOS 7_X64 install + vnc
+MENU DEFAULT
+KERNEL /networkboot/vmlinuz
+APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub ks=ftp://192.168.0.101/pub/c52-d4-ae-52-c8-00-0c.cfg inst.vnc
+
+LABEL 3
+MENU LABEL ^3) local boot
