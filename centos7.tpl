@@ -9,7 +9,6 @@ url --url="ftp://192.168.0.101/pub/"
 graphical
 selinux disabled
 bootloader location=mbr
-clearpart --all --initlabel
 # Firewall configuration
 firewall --disabled
 ignoredisk --only-use=sda
@@ -39,15 +38,28 @@ bootloader --location=mbr --boot-drive=sda
 # Partition clearing information
 clearpart --all --initlabel --drives=sda
 # Disk partitioning information
-part /boot --fstype="xfs" --ondisk=sda --size=300
-part swap --asprimary --fstype="swap" --ondisk=sda --size=1024
-part pv.115 --fstype="lvmpv" --size=952544
-volgroup root_vg01 --pesize=4096 pv.115
-logvol /  --fstype="xfs" --size=542932 --name=lv_01 --vgname=root_vg01
+part /boot --fstype="xfs" --size=300
+part swap --asprimary --fstype="swap" --size=1024
+part pv.704 --fstype="lvmpv" --ondisk=sda --size=850144
+part / --fstype="xfs" --ondisk=sda --size=102400
+volgroup centos_c4 --pesize=4096 pv.704
+logvol /data  --fstype="xfs" --size=747740 --name=data --vgname=centos_c4
+logvol /home  --fstype="xfs" --size=102400 --name=home --vgname=centos_c4
+
 
 %packages
-@^minimal
+@^compute-node-environment
+@base
 @core
+@debugging
+@development
+@hardware-monitoring
+@infiniband
+@network-file-system-client
+@performance
+@remote-system-management
+@scientific
+@system-admin-tools
 chrony
 
 %end
