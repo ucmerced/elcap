@@ -62,8 +62,18 @@ logvol /home  --fstype="xfs" --size=102400 --name=home --vgname=centos_c4
 @system-admin-tools
 chrony
 
+epel-release
+htop
+
 %end
 
 %addon com_redhat_kdump --disable --reserve-mb='auto'
+
+%end
+
+%post --nochroot
+echo "UseDNS yes" >> /etc/ssh/sshd_config
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAv4z5uSSJBLqh1fJ8B/KiYr8gc4DlpVOX34hLPs1L907VK6jjL43g0NpYHGzCTZksoqC8RA+HLkVxIW0A2oI86usvOLE61Yr52fs9GWRmHxEx36iAcqueC7UIgK846CcMSZGhinUnc6OF1+gQnlTUx2mQ9yaa59yT4se9RC+IC48= root@elcapitan3.ucmerced.edu" /root/.ssh/authorized_keys
+
 
 %end
