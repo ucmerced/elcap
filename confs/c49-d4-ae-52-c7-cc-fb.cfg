@@ -62,8 +62,6 @@ logvol /home  --fstype="xfs" --size=102400 --name=home --vgname=centos_data
 @system-admin-tools
 chrony
 
-epel-release
-htop
 
 %end
 
