@@ -1,19 +1,21 @@
 default menu.c32
 prompt 0
-timeout 30
+timeout 300
+ONTIMEOUT local
 
 MENU TITLE PXE Menu for c13 : d0-67-e5-e8-d3-3e
 
 LABEL 1
-MENU DEFAULT
-MENU LABEL ^1) CentOS 7_X64 install
-KERNEL /networkboot/vmlinuz
-APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub ks=ftp://192.168.0.101/pub/c13-d0-67-e5-e8-d3-3e.cfg
+    MENU DEFAULT
+    MENU LABEL ^1) CentOS 7_X64 install
+    KERNEL /networkboot/vmlinuz
+    APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub ks=ftp://192.168.0.101/pub/c13-d0-67-e5-e8-d3-3e.cfg
 
 LABEL 2
-MENU LABEL ^2) CentOS 7_X64 install + vnc
-KERNEL /networkboot/vmlinuz
-APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub ks=ftp://192.168.0.101/pub/c13-d0-67-e5-e8-d3-3e.cfg inst.vnc
+    MENU LABEL ^2) CentOS 7_X64 install + vnc
+    KERNEL /networkboot/vmlinuz
+    APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub ks=ftp://192.168.0.101/pub/c13-d0-67-e5-e8-d3-3e.cfg inst.vnc
 
-LABEL 3
-MENU LABEL ^3) local boot
+LABEL local
+    MENU LABEL Boot local hard drive
+    LOCALBOOT 0
