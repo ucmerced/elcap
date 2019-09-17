@@ -1,0 +1,20 @@
+default menu.c32
+prompt 0
+timeout 300
+
+MENU TITLE PXE Menu for elcapitan3a-ext : d0-67-e5-e8-d4-86
+
+LABEL 1
+    MENU DEFAULT
+    MENU LABEL ^1) CentOS 7_X64 install
+    KERNEL /networkboot/vmlinuz
+    APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub ks=ftp://192.168.0.101/pub/elcapitan3a-ext-d0-67-e5-e8-d4-86.cfg
+
+LABEL 2
+    MENU LABEL ^2) CentOS 7_X64 install + vnc
+    KERNEL /networkboot/vmlinuz
+    APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub ks=ftp://192.168.0.101/pub/elcapitan3a-ext-d0-67-e5-e8-d4-86.cfg inst.vnc
+
+LABEL local
+    MENU LABEL Boot local hard drive
+    LOCALBOOT 0
