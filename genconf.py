@@ -3,15 +3,13 @@ with open('dhcpd.conf') as f:
 
 hostname=''
 mac=''
-ip=''
-mac_host = {}
-host_mac = {}
+mac_host = {'d0-67-e5-e8-d4-85':'elcapitan3a'}
+host_mac = {v:k for k,v in mac_host.items()}
 for line in lines:
     if 'host ' in line:
         hostname = line.split(' ')[-2]
     if "hardware" in line:
         mac = line.split(' ')[-1][:-2].replace(':', '-')
-        #print(line.strip(), mac, hostname)
         mac_host[mac] = hostname
         host_mac[hostname] = mac
 
@@ -35,3 +33,5 @@ for mac in mac_host.keys():
     hostname = mac_host[mac]
     with open(f'pxelinux.cfg/01-{mac}', 'w') as f:
         f.write(tpl.render(mac=mac, hostname=hostname))
+
+
