@@ -6,14 +6,19 @@ MENU TITLE PXE Menu for c62 : d4-ae-52-c7-cd-9d
 
 LABEL 1
     MENU DEFAULT
-    MENU LABEL ^1) CentOS 7_X64 install
+    MENU LABEL ^1) CentOS 8_X64 install
     KERNEL /networkboot/vmlinuz
-    APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub ks=ftp://192.168.0.101/pub/c62-d4-ae-52-c7-cd-9d.cfg
+    APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub/centos8 ks=ftp://192.168.0.101/pub/c62-d4-ae-52-c7-cd-9d.cfg
 
 LABEL 2
+    MENU LABEL ^1) CentOS 7_X64 install
+    KERNEL /networkboot/vmlinuz
+    APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub/centos7 ks=ftp://192.168.0.101/pub/c62-d4-ae-52-c7-cd-9d.cfg
+
+LABEL 3
     MENU LABEL ^2) CentOS 7_X64 install + vnc
     KERNEL /networkboot/vmlinuz
-    APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub ks=ftp://192.168.0.101/pub/c62-d4-ae-52-c7-cd-9d.cfg inst.vnc
+    APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub/centos7 ks=ftp://192.168.0.101/pub/c62-d4-ae-52-c7-cd-9d.cfg inst.vnc
 
 LABEL local
     MENU LABEL Boot local hard drive
