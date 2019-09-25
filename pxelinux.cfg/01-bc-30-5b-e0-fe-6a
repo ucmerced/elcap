@@ -7,8 +7,8 @@ MENU TITLE PXE Menu for c30 : bc-30-5b-e0-fe-6a
 LABEL 1
     MENU DEFAULT
     MENU LABEL ^1) CentOS 8_X64 install
-    KERNEL /networkboot/vmlinuz
-    APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub/centos8 ks=ftp://192.168.0.101/pub/c30-bc-30-5b-e0-fe-6a.cfg
+    KERNEL /centos8/vmlinuz
+    APPEND initrd=/centos8/initrd.img inst.repo=ftp://192.168.0.101/pub/centos8 ks=ftp://192.168.0.101/pub/c30-bc-30-5b-e0-fe-6a.cfg
 
 LABEL 2
     MENU LABEL ^1) CentOS 7_X64 install
