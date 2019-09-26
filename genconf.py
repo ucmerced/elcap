@@ -19,13 +19,16 @@ import jinja2
 
 e = jinja2.Environment()
 
-tpl = e.from_string(open('centos7.tpl').read())
+tpl7 = e.from_string(open('centos7.tpl').read())
+tpl8 = e.from_string(open('centos8.tpl').read())
 
 for i in range(1,62):
     hostname = f'c{i}'
     mac = host_mac[hostname]
-    with open(f'confs/{hostname}-{mac}.cfg', 'w') as f:
-        f.write(tpl.render(hostname=hostname))
+    with open(f'centos7/{hostname}-{mac}.cfg', 'w') as f:
+        f.write(tpl7.render(hostname=hostname))
+    with open(f'centos8/{hostname}-{mac}.cfg', 'w') as f:
+        f.write(tpl8.render(hostname=hostname))
 
 tpl = e.from_string(open('pxemenu.tpl').read())
 
