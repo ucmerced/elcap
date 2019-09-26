@@ -1,0 +1,21 @@
+default menu.c32
+prompt 0
+timeout 300
+ONTIMEOUT local
+
+MENU TITLE LinuxTechi.com PXE Menu
+
+LABEL centos8_x64 install
+	MENU LABEL CentOS 8_X64 install
+	KERNEL /centos8/vmlinuz
+	APPEND initrd=/centos8/initrd.img inst.repo=ftp://192.168.0.101/pub/centos8/ ks=ftp://192.168.0.101/pub/centos8/centos8.cfg
+
+LABEL centos7_x64 install
+	MENU LABEL CentOS 7_X64 install
+	KERNEL /centos7/vmlinuz
+	APPEND initrd=/centos7/initrd.img inst.repo=ftp://192.168.0.101/pub/centos7/ ks=ftp://192.168.0.101/pub/centos7.cfg
+
+LABEL local
+	MENU DEFAULT
+        MENU LABEL Boot local hard drive
+        LOCALBOOT 0
