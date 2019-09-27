@@ -5,18 +5,18 @@ timeout 300
 MENU TITLE PXE Menu for c31 : d4-ae-52-c7-cd-8e
 
 LABEL 1
-    MENU DEFAULT
     MENU LABEL ^1) CentOS 7_X64 install
     KERNEL /networkboot/vmlinuz
     APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub/centos7 ks=ftp://192.168.0.101/pub/centos7/c31-d4-ae-52-c7-cd-8e.cfg
 
 LABEL 2
-    MENU LABEL ^1) CentOS 8_X64 install
+    MENU DEFAULT
+    MENU LABEL ^2) CentOS 8_X64 install
     KERNEL /centos8/vmlinuz
     APPEND initrd=/centos8/initrd.img inst.repo=ftp://192.168.0.101/pub/centos8 ks=ftp://192.168.0.101/pub/centos8/c31-d4-ae-52-c7-cd-8e.cfg
 
 LABEL 3
-    MENU LABEL ^2) CentOS 7_X64 install + vnc
+    MENU LABEL ^3) CentOS 7_X64 install + vnc
     KERNEL /networkboot/vmlinuz
     APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub/centos7 ks=ftp://192.168.0.101/pub/centos7/c31-d4-ae-52-c7-cd-8e.cfg inst.vnc
 
