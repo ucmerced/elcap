@@ -1,8 +1,5 @@
 #version=RHEL8
 ignoredisk --only-use=sda
-autopart --type=lvm
-# Partition clearing information
-clearpart --all --initlabel --drives=sda
 # Use graphical install
 graphical
 repo --name="AppStream" --baseurl=ftp://192.168.0.101/pub/centos8/AppStream
