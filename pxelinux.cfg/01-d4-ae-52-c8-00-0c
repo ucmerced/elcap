@@ -5,12 +5,12 @@ timeout 300
 MENU TITLE PXE Menu for c52 : d4-ae-52-c8-00-0c
 
 LABEL 1
+    MENU DEFAULT
     MENU LABEL ^1) CentOS 7_X64 install
     KERNEL /networkboot/vmlinuz
     APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.0.101/pub/centos7 ks=ftp://192.168.0.101/pub/centos7/c52-d4-ae-52-c8-00-0c.cfg
 
 LABEL 2
-    MENU DEFAULT
     MENU LABEL ^2) CentOS 8_X64 install
     KERNEL /centos8/vmlinuz
     APPEND initrd=/centos8/initrd.img inst.repo=ftp://192.168.0.101/pub/centos8 ks=ftp://192.168.0.101/pub/centos8/c52-d4-ae-52-c8-00-0c.cfg
